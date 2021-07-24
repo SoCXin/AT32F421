@@ -1,16 +1,16 @@
 /*
 *********************************************************************************************************
 *
-*	ç¨‹åºåç§°: ADC1é©±åŠ¨æ¨¡å—
-*	æ–‡ä»¶åç§°: bsp_adc.c
-*	ç‰ˆ    æœ¬: v1.0.0
-*   ç¼–    å†™: è«åˆ©å¥–
-*	è¯´    æ˜:
+*	³ÌĞòÃû³Æ: ADC1Çı¶¯Ä£¿é
+*	ÎÄ¼şÃû³Æ: bsp_adc.c
+*	°æ    ±¾: v1.0.0
+*   ±à    Ğ´: ÄªÀû½±
+*	Ëµ    Ã÷: 
 *
-*	ç‰ˆæœ¬è®°å½•:
-*	v1.0.0: 2021å¹´4æœˆ9æ—¥ï¼Œåˆç‰ˆ
+*	°æ±¾¼ÇÂ¼: 
+*	v1.0.0: 2021Äê4ÔÂ9ÈÕ£¬³õ°æ
 *
-*	Copyright (C), 2021-2031, æ·±åœ³å¸‚é£å·½äº‘ç§‘æŠ€æœ‰é™å…¬å¸ https://fxymcu.taobao.com
+*	Copyright (C), 2021-2031, ÉîÛÚÊĞ·çÙãÔÆ¿Æ¼¼ÓĞÏŞ¹«Ë¾ https://fxymcu.taobao.com
 *
 *********************************************************************************************************
 */
@@ -19,63 +19,63 @@
 
 /*
 *********************************************************************************************************
-*	å‡½ æ•° å: bsp_InitADC1Channel
-*	åŠŸèƒ½è¯´æ˜: é…ç½®ADC1æ¨¡å¼åŠæŒ‡å®šé€šé“
-*	å½¢    å‚: æ— 
-*	è¿” å› å€¼: æ— 
+*	º¯ Êı Ãû: bsp_InitADC1Channel
+*	¹¦ÄÜËµÃ÷: ÅäÖÃADC1Ä£Ê½¼°Ö¸¶¨Í¨µÀ
+*	ĞÎ    ²Î: ÎŞ
+*	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
 static void bsp_InitADC1Channel(void)
 {
     ADC_InitType ADC_InitStructure;
 
-    /* ADC1æ—¶é’Ÿ = PCLK2/12 = 10MHz */
+    /* ADC1Ê±ÖÓ = PCLK2/12 = 10MHz */
     RCC_ADCCLKConfig(RCC_APB2CLK_Div12);
-    /* ä½¿èƒ½ADC1æ—¶é’Ÿ */
+    /* Ê¹ÄÜADC1Ê±ÖÓ */
     RCC_APB2PeriphClockCmd(RCC_APB2PERIPH_ADC1, ENABLE);
 
-    /* ADC1 é…ç½® */
+    /* ADC1 ÅäÖÃ */
     ADC_StructInit(&ADC_InitStructure);
-    ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;          /* ç‹¬ç«‹æ¨¡å¼ */
-    ADC_InitStructure.ADC_ScanMode = ENABLE;                    /* å•æ¬¡è½¬æ¢ */
-    ADC_InitStructure.ADC_ContinuousMode = DISABLE;             /* è¿ç»­è½¬æ¢ */
-    ADC_InitStructure.ADC_ExternalTrig = ADC_ExternalTrig_None; /* è½¯ä»¶è§¦å‘ */
-    ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;      /* è½¬æ¢ç»“æœå³å¯¹é½ */
-    ADC_InitStructure.ADC_NumOfChannel = 1;                     /* ä¸€ä¸ªè½¬æ¢é€šé“ */
+    ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;          /* ¶ÀÁ¢Ä£Ê½ */
+    ADC_InitStructure.ADC_ScanMode = ENABLE;                    /* µ¥´Î×ª»» */
+    ADC_InitStructure.ADC_ContinuousMode = DISABLE;             /* Á¬Ğø×ª»» */
+    ADC_InitStructure.ADC_ExternalTrig = ADC_ExternalTrig_None; /* Èí¼ş´¥·¢ */
+    ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;      /* ×ª»»½á¹ûÓÒ¶ÔÆë */
+    ADC_InitStructure.ADC_NumOfChannel = 1;                     /* Ò»¸ö×ª»»Í¨µÀ */
     ADC_Init(ADC1, &ADC_InitStructure);
 
-    /* é…ç½®ADCé€šé“è½¬æ¢é¡ºåºå’Œæ—¶é—´ */
-    ADC_RegularChannelConfig(ADC1, ADC_Channel_TempSensor, 1, ADC_SampleTime_55_5); /* é‡‡æ ·æ—¶é—´ = 55.5 + 12.5 = 68å‘¨æœŸ  68 * ï¼ˆ1/10ï¼‰ = 6.8us */
-    /* ä½¿èƒ½æ¸©åº¦ä¼ æ„Ÿå™¨é€šé“ */
+    /* ÅäÖÃADCÍ¨µÀ×ª»»Ë³ĞòºÍÊ±¼ä */
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_TempSensor, 1, ADC_SampleTime_55_5); /* ²ÉÑùÊ±¼ä = 55.5 + 12.5 = 68ÖÜÆÚ  68 * £¨1/10£© = 6.8us */
+    /* Ê¹ÄÜÎÂ¶È´«¸ĞÆ÷Í¨µÀ */
     ADC_TempSensorVrefintCtrl(ENABLE);
 
-    /* æ¸…é™¤ä¸­æ–­å®Œæˆæ ‡å¿— */
+    /* Çå³ıÖĞ¶ÏÍê³É±êÖ¾ */
     ADC_ClearINTPendingBit(ADC1, ADC_INT_EC);
-    /* ä½¿èƒ½ADC1è½¬æ¢å®Œæˆä¸­æ–­ */
+    /* Ê¹ÄÜADC1×ª»»Íê³ÉÖĞ¶Ï */
     ADC_INTConfig(ADC1, ADC_INT_EC, ENABLE);
-    /* ä½¿èƒ½ADC1 */
+    /* Ê¹ÄÜADC1 */
     ADC_Ctrl(ADC1, ENABLE);
 
-    /* é‡ç½®ADC1æ ¡å‡† */
+    /* ÖØÖÃADC1Ğ£×¼ */
     ADC_RstCalibration(ADC1);
-    /* ç­‰å¾…é‡ç½®å®Œæˆ */
+    /* µÈ´ıÖØÖÃÍê³É */
     while (ADC_GetResetCalibrationStatus(ADC1));
 
-    /* å¼€å§‹æ ¡å‡† */
+    /* ¿ªÊ¼Ğ£×¼ */
     ADC_StartCalibration(ADC1);
-    /* ç­‰å¾…æ ¡å‡†å®Œæˆ */
+    /* µÈ´ıĞ£×¼Íê³É */
     while (ADC_GetCalibrationStatus(ADC1));
 
-    /* è½¯ä»¶è§¦å‘ADC1è½¬æ¢ä¸€æ¬¡ */
+    /* Èí¼ş´¥·¢ADC1×ª»»Ò»´Î */
     ADC_SoftwareStartConvCtrl(ADC1, ENABLE);
 }
 
 /*
 *********************************************************************************************************
-*	å‡½ æ•° å: bsp_InitADC1
-*	åŠŸèƒ½è¯´æ˜: åˆå§‹åŒ–ADC1
-*	å½¢    å‚: æ— 
-*	è¿” å› å€¼: æ— 
+*	º¯ Êı Ãû: bsp_InitADC1
+*	¹¦ÄÜËµÃ÷: ³õÊ¼»¯ADC1
+*	ĞÎ    ²Î: ÎŞ
+*	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
 void bsp_InitADC1(void)
@@ -85,19 +85,19 @@ void bsp_InitADC1(void)
 
 /*
 *********************************************************************************************************
-*	å‡½ æ•° å: Get_ADC
-*	åŠŸèƒ½è¯´æ˜: è¯»å–ADCå€¼
-*	å½¢    å‚: æ— 
-*	è¿” å› å€¼: ADCå€¼
+*	º¯ Êı Ãû: Get_ADC
+*	¹¦ÄÜËµÃ÷: ¶ÁÈ¡ADCÖµ
+*	ĞÎ    ²Î: ÎŞ
+*	·µ »Ø Öµ: ADCÖµ
 *********************************************************************************************************
 */
 uint16_t Get_ADC(void)
 {
-    /* è½¯ä»¶è§¦å‘ADC1è½¬æ¢ */
+    /* Èí¼ş´¥·¢ADC1×ª»» */
     ADC_SoftwareStartConvCtrl(ADC1, ENABLE);
-    /* ç­‰å¾…è½¬æ¢å®Œæˆ */
+    /* µÈ´ı×ª»»Íê³É */
     while (ADC_GetSoftwareStartConvStatus(ADC1));
-    /* è¿”å›è§„åˆ™ç»„è½¬æ¢ç»“æœ */
+    /* ·µ»Ø¹æÔò×é×ª»»½á¹û */
     return ADC_GetDualModeConversionValue();
 }
 

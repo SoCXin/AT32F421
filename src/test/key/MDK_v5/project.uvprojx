@@ -442,41 +442,6 @@
               <FileType>1</FileType>
               <FilePath>..\User\Bsp\src\bsp_exit.c</FilePath>
             </File>
-            <File>
-              <FileName>bsp_pwm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_pwm.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_ertc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_ertc.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_i2c_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_i2c_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_oled.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -546,31 +511,6 @@
               <FileName>at32f4xx_syscfg.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_syscfg.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_ertc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_ertc.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_pwr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_pwr.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_spi.c</FilePath>
             </File>
           </Files>
         </Group>
