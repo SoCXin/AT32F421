@@ -2125,9 +2125,6 @@
             <name>$PROJ_DIR$\..\..\Bsp\src\bsp_delay.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\Bsp\src\bsp_ertc.c</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\..\..\Bsp\src\bsp_exit.c</name>
         </file>
         <file>
@@ -2170,7 +2167,7 @@
             <name>$PROJ_DIR$\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_dbgmcu.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_ertc.c</name>
+            <name>$PROJ_DIR$\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_dma.c</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_exti.c</name>
@@ -2180,9 +2177,6 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_gpio_ex.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_pwr.c</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_rcc.c</name>

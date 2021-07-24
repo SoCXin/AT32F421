@@ -7,16 +7,16 @@
 
   <Targets>
     <Target>
-      <TargetName>QITAS</TargetName>
+      <TargetName>Flash</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>AT32F421C8T7</Device>
           <Vendor>ArteryTek</Vendor>
-          <PackID>Keil.AT32F4xx_DFP.1.3.7</PackID>
+          <PackID>Keil.AT32F4xx_DFP.1.3.6</PackID>
           <Cpu>IRAM(0x20000000,0x4000) IROM(0x08000000,0x10000) CPUTYPE("Cortex-M4") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -452,31 +452,6 @@
               <FileType>1</FileType>
               <FilePath>..\..\Bsp\src\bsp_adc.c</FilePath>
             </File>
-            <File>
-              <FileName>bsp_ertc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Bsp\src\bsp_ertc.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_i2c_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Bsp\src\bsp_i2c_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Bsp\src\bsp_i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Bsp\src\bsp_spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Bsp\src\bsp_oled.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -553,24 +528,9 @@
               <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_adc.c</FilePath>
             </File>
             <File>
-              <FileName>at32f4xx_ertc.c</FileName>
+              <FileName>at32f4xx_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_ertc.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_pwr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_pwr.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f4xx_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_spi.c</FilePath>
+              <FilePath>..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_dma.c</FilePath>
             </File>
           </Files>
         </Group>

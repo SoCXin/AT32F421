@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>AT32F421C8T7,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\User;..\User\Bsp;..\User\Bsp\inc;..\..\Libraries\CMSIS\CM4\CoreSupport;..\..\Libraries\CMSIS\CM4\DeviceSupport;..\..\Libraries\AT32F4xx_StdPeriph_Driver\inc</IncludePath>
+              <IncludePath>..\User;..\..\Bsp;..\..\Bsp\inc;..\..\Libraries\CMSIS\CM4\CoreSupport;..\..\Libraries\CMSIS\CM4\DeviceSupport;..\..\Libraries\AT32F4xx_StdPeriph_Driver\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -400,62 +400,62 @@
             <File>
               <FileName>bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\bsp.c</FilePath>
+              <FilePath>..\..\Bsp\bsp.c</FilePath>
             </File>
             <File>
               <FileName>bsp.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\User\Bsp\bsp.h</FilePath>
+              <FilePath>..\..\Bsp\bsp.h</FilePath>
             </File>
             <File>
               <FileName>bsp_delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_delay.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_delay.c</FilePath>
             </File>
             <File>
               <FileName>bsp_led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_led.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_led.c</FilePath>
             </File>
             <File>
               <FileName>bsp_timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_timer.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_timer.c</FilePath>
             </File>
             <File>
               <FileName>bsp_key.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_key.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_key.c</FilePath>
             </File>
             <File>
               <FileName>bsp_usart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_usart.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_usart.c</FilePath>
             </File>
             <File>
               <FileName>bsp_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_flash.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_flash.c</FilePath>
             </File>
             <File>
               <FileName>bsp_exit.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_exit.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_exit.c</FilePath>
             </File>
             <File>
               <FileName>bsp_pwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_pwm.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_pwm.c</FilePath>
             </File>
             <File>
               <FileName>bsp_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_adc.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_adc.c</FilePath>
             </File>
             <File>
               <FileName>bsp_ertc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Bsp\src\bsp_ertc.c</FilePath>
+              <FilePath>..\..\Bsp\src\bsp_ertc.c</FilePath>
             </File>
           </Files>
         </Group>
