@@ -11,7 +11,7 @@
 
 AT32F421系列搭载了雅特力自行开发的sLib安全库 (Security Library) ，可支持密码保护指定范围程序区，方案商烧录核心算法到此区域，提供给下游客户做二次开发，强化了产品本身的安全性、可靠性和二次开发的使用便利度。
 
-[![sites](docs/AT32F421.png)](https://www.silabs.com/mcu/8-bit/efm8-busy-bee)
+[![sites](docs/AT32F421.svg)](https://www.arterytek.com/cn/product/AT32F421.jsp#Resource)
 
 ### 关键特性
 
@@ -30,11 +30,17 @@ AT32F421系列搭载了雅特力自行开发的sLib安全库 (Security Library) 
 
 [AT32F421](https://github.com/SoCXin/AT32F421)
 
+#### 封装规格
+
 * LQFP48 7 x 7 mm
 * LQFP32 7 x 7 mm
 * QFN32 5 x 5 mm
 * QFN32 4 x 4 mm
 * QFN28 4 x 4 mm
 * TSSOP20 6.5 x 4.4 mm
+
+#### 相关开发板
+
+[![sites](docs/B.jpg)](https://item.taobao.com/item.htm?_u=ogas3eu93a4&id=632845784689)
 
 ### [探索芯世界 www.SoC.xin](http://www.SoC.Xin)
