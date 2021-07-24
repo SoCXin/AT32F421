@@ -202,7 +202,7 @@ void bsp_UART_SendByte(USART_Type *USARTx, uint8_t ucByte)
     /* 发送数据 */
     USART_SendData(USARTx, ucByte);
     /* 等待发送结束 */
-    while (USART_GetFlagStatus(USART1, USART_FLAG_TRAC) == RESET)
+    while (USART_GetFlagStatus(USARTx, USART_FLAG_TRAC) == RESET)
     {
     }
 }
@@ -252,7 +252,7 @@ void USART2_IRQHandler(void)
     if (USART_GetITStatus(USART2, USART_INT_RDNE) != RESET)
     {
         /* 清除接收中断标志 */
-        USART_ClearFlag(USART1, USART_FLAG_RDNE);
+        USART_ClearFlag(USART2, USART_FLAG_RDNE);
         /* 读取数据 */
         ucData = USART_ReceiveData(USART2);
     }

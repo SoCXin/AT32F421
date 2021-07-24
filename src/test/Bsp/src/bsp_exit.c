@@ -1,23 +1,23 @@
-ï»¿/*
+/*
 *********************************************************************************************************
 *
-*	ç¨‹åºåç§°: å¤–éƒ¨ä¸­æ–­é©±åŠ¨æ¨¡å—
-*	æ–‡ä»¶åç§°: bsp_exit.c
-*	ç‰ˆ    æœ¬: v1.0.0
-*   ç¼–    å†™: è«åˆ©å¥–
-*	è¯´    æ˜:
+*	³ÌĞòÃû³Æ: Íâ²¿ÖĞ¶ÏÇı¶¯Ä£¿é
+*	ÎÄ¼şÃû³Æ: bsp_exit.c
+*	°æ    ±¾: v1.0.0
+*   ±à    Ğ´: ÄªÀû½±
+*	Ëµ    Ã÷: 
 *
-*	ç‰ˆæœ¬è®°å½•:
-*	v1.0.0: 2021å¹´4æœˆ9æ—¥ï¼Œåˆç‰ˆ
+*	°æ±¾¼ÇÂ¼: 
+*	v1.0.0: 2021Äê4ÔÂ9ÈÕ£¬³õ°æ
 *
-*	Copyright (C), 2021-2031, æ·±åœ³å¸‚é£å·½äº‘ç§‘æŠ€æœ‰é™å…¬å¸ https://fxymcu.taobao.com
+*	Copyright (C), 2021-2031, ÉîÛÚÊĞ·çÙãÔÆ¿Æ¼¼ÓĞÏŞ¹«Ë¾ https://fxymcu.taobao.com
 *
 *********************************************************************************************************
 */
 
 #include "bsp.h"
 
-/* é©±åŠ¨å¼•è„šå®šä¹‰ */
+/* Çı¶¯Òı½Å¶¨Òå */
 #define EXIT_PORT GPIOC
 #define EXIT_PIN GPIO_Pins_13
 #define EXIT_GPIO_RCC RCC_AHBPERIPH_GPIOC
@@ -26,15 +26,15 @@
 #define EXIT_LINE EXTI_Line13
 #define EXIT_IRQ EXTI15_4_IRQn
 
-/* è¯»æŒ‰é”®å£çº¿çŠ¶æ€ */
+/* ¶Á°´¼ü¿ÚÏß×´Ì¬ */
 #define EXIT_READ() (EXIT_PORT->IPTDT & EXIT_PIN)
 
 /*
 *********************************************************************************************************
-*	å‡½ æ•° å: bsp_InitEXTI
-*	åŠŸèƒ½è¯´æ˜: åˆå§‹åŒ–å¤–éƒ¨ä¸­æ–­
-*	å½¢    å‚: æ— 
-*	è¿” å› å€¼: æ— 
+*	º¯ Êı Ãû: bsp_InitEXTI
+*	¹¦ÄÜËµÃ÷: ³õÊ¼»¯Íâ²¿ÖĞ¶Ï
+*	ĞÎ    ²Î: ÎŞ
+*	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
 void bsp_InitEXTI(void)
@@ -43,42 +43,42 @@ void bsp_InitEXTI(void)
     EXTI_InitType EXTI_InitStructure;
     NVIC_InitType NVIC_InitStructure;
 
-    /* ä½¿èƒ½GPIOæ—¶é’Ÿ */
+    /* Ê¹ÄÜGPIOÊ±ÖÓ */
     RCC_AHBPeriphClockCmd(EXIT_GPIO_RCC, ENABLE);
-    /* ä½¿èƒ½SYSCFGæ—¶é’Ÿ */
+    /* Ê¹ÄÜSYSCFGÊ±ÖÓ */
     RCC_APB2PeriphClockCmd(RCC_APB2PERIPH_SYSCFGCOMP, ENABLE);
 
-    /* é…ç½®GPIO */
+    /* ÅäÖÃGPIO */
     GPIO_StructInit(&GPIO_InitStructure);
     GPIO_InitStructure.GPIO_Pins = EXIT_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-    GPIO_InitStructure.GPIO_Pull = GPIO_Pull_NOPULL; /* æµ®ç©ºè¾“å…¥ï¼Œå·²å¤–ç½®ä¸Šæ‹‰ */
+    GPIO_InitStructure.GPIO_Pull = GPIO_Pull_NOPULL; /* ¸¡¿ÕÊäÈë£¬ÒÑÍâÖÃÉÏÀ­ */
     GPIO_Init(EXIT_PORT, &GPIO_InitStructure);
 
-    /* é…ç½®å¤–éƒ¨ä¸­æ–­è¾“å…¥æº */
+    /* ÅäÖÃÍâ²¿ÖĞ¶ÏÊäÈëÔ´ */
     SYSCFG_EXTILineConfig(EXIT_PORT_SOURCE, EXIT_PIN_SOURCE);
 
     EXTI_StructInit(&EXTI_InitStructure);
-    EXTI_InitStructure.EXTI_Line = EXIT_LINE;               /* ä¸­æ–­çº¿ */
-    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;     /* ä¸­æ–­æ¨¡å¼ */
-    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; /* ä¸‹é™æ²¿è§¦å‘ */
-    EXTI_InitStructure.EXTI_LineEnable = ENABLE;            /* ä½¿èƒ½ */
+    EXTI_InitStructure.EXTI_Line = EXIT_LINE;               /* ÖĞ¶ÏÏß */
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;     /* ÖĞ¶ÏÄ£Ê½ */
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; /* ÏÂ½µÑØ´¥·¢ */
+    EXTI_InitStructure.EXTI_LineEnable = ENABLE;            /* Ê¹ÄÜ */
     EXTI_Init(&EXTI_InitStructure);
 
-    /* ä½¿èƒ½EXTIå…¨å±€ä¸­æ–­ */
-    NVIC_InitStructure.NVIC_IRQChannel = EXIT_IRQ;            /* IRQé€šé“ */
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; /* æŠ¢å ä¼˜å…ˆçº§åˆ« */
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;        /* ä»ä¼˜å…ˆçº§åˆ« */
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           /* ä½¿èƒ½IRQé€šé“ */
+    /* Ê¹ÄÜEXTIÈ«¾ÖÖĞ¶Ï */
+    NVIC_InitStructure.NVIC_IRQChannel = EXIT_IRQ;            /* IRQÍ¨µÀ */
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; /* ÇÀÕ¼ÓÅÏÈ¼¶±ğ */
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;        /* ´ÓÓÅÏÈ¼¶±ğ */
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           /* Ê¹ÄÜIRQÍ¨µÀ */
     NVIC_Init(&NVIC_InitStructure);
 }
 
 /*
 *********************************************************************************************************
-*	å‡½ æ•° å: EXTI15_4_IRQHandler
-*	åŠŸèƒ½è¯´æ˜: å¤–éƒ¨ä¸­æ–­4-15
-*	å½¢    å‚: æ— 
-*	è¿” å› å€¼: æ— 
+*	º¯ Êı Ãû: EXTI15_4_IRQHandler
+*	¹¦ÄÜËµÃ÷: Íâ²¿ÖĞ¶Ï4-15
+*	ĞÎ    ²Î: ÎŞ
+*	·µ »Ø Öµ: ÎŞ
 *********************************************************************************************************
 */
 void EXTI15_4_IRQHandler(void)
@@ -88,7 +88,7 @@ void EXTI15_4_IRQHandler(void)
         EXTI_ClearIntPendingBit(EXTI_Line13);
         if (!EXIT_READ())
         {
-            printf("->å¤–éƒ¨ä¸­æ–­äº‹ä»¶\r\n");
+            printf("->Íâ²¿ÖĞ¶ÏÊÂ¼ş\r\n");
             bsp_LED_Toggle();
         }
     }

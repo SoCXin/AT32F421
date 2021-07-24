@@ -7,7 +7,7 @@
 *   编    写: 莫利奖
 *	说    明: 硬件底层驱动程序的主文件
 *
-*	版本记录: 
+*	版本记录:
 *	v1.0.0: 2021年4月8日，初版
 *
 *	Copyright (C), 2021-2031, 深圳市风巽云科技有限公司 https://fxymcu.taobao.com
@@ -42,7 +42,7 @@ void System_Init(void)
 //	bsp_InitEXTI();
 //	bsp_InitTMR3_PWM3(0);
 	bsp_InitADC1();
-	bsp_InitERTC();
+    bsp_InitERTC();
 }
 
 /********************************************* End of file **********************************************/

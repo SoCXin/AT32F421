@@ -1,31 +1,31 @@
-Ôªø/*
+/*
 *********************************************************************************************************
 *
-*	Á®ãÂ∫èÂêçÁß∞: ERTCÈ©±Âä®Ê®°Âùó
-*	Êñá‰ª∂ÂêçÁß∞: bsp_ertc.c
-*	Áâà    Êú¨: v1.0.0
-*   Áºñ    ÂÜô: Ëé´Âà©Â•ñ
-*	ËØ¥    Êòé:
+*	≥Ã–Ú√˚≥∆: ERTC«˝∂Øƒ£øÈ
+*	Œƒº˛√˚≥∆: bsp_ertc.c
+*	∞Ê    ±æ: v1.0.0
+*   ±‡    –¥: ƒ™¿˚Ω±
+*	Àµ    √˜: 
 *
-*	ÁâàÊú¨ËÆ∞ÂΩï:
-*	v1.0.0: 2021Âπ¥4Êúà9Êó•ÔºåÂàùÁâà
+*	∞Ê±æº«¬º: 
+*	v1.0.0: 2021ƒÍ4‘¬9»’£¨≥ı∞Ê
 *
-*	Copyright (C), 2021-2031, Ê∑±Âú≥Â∏ÇÈ£éÂ∑Ω‰∫ëÁßëÊäÄÊúâÈôêÂÖ¨Âè∏ https://fxymcu.taobao.com
+*	Copyright (C), 2021-2031, …Ó€⁄ –∑ÁŸ„‘∆ø∆ºº”–œﬁπ´Àæ https://fxymcu.taobao.com
 *
 *********************************************************************************************************
 */
 
 #include "bsp.h"
 
-/* Êó∂ÈíüÊ∫êÈÄâÊã© */
-#define ERTC_CLOCK_SOURCE 1 /* 0: ÂÜÖÈÉ®40KHzÊó∂Èíü(ÊúâËØØÂ∑Æ) 1: Â§ñÈÉ®32.768KHzÊó∂Èíü(Êé®Ëçê) */
+/*  ±÷”‘¥—°‘Ò */
+#define ERTC_CLOCK_SOURCE 1 /* 0: ƒ⁄≤ø40KHz ±÷”(”–ŒÛ≤Ó) 1: Õ‚≤ø32.768KHz ±÷”(Õ∆ºˆ) */
 
 /*
 *********************************************************************************************************
-*	ÂáΩ Êï∞ Âêç: bsp_InitHardERTC
-*	ÂäüËÉΩËØ¥Êòé: ÂàùÂßãÂåñÂÆûÊó∂Êó∂ÈíüÁ°¨‰ª∂
-*	ÂΩ¢    ÂèÇ: Êó†
-*	Ëøî Âõû ÂÄº: Êó†
+*	∫Ø  ˝ √˚: bsp_InitHardERTC
+*	π¶ƒ‹Àµ√˜: ≥ı ºªØ µ ± ±÷””≤º˛
+*	–Œ    ≤Œ: Œﬁ
+*	∑µ ªÿ ÷µ: Œﬁ
 *********************************************************************************************************
 */
 static void bsp_InitHardERTC(void)
@@ -36,114 +36,114 @@ static void bsp_InitHardERTC(void)
     __IO uint8_t ucAsynchPrediv;
     __IO uint16_t usSynchPrediv;
 
-    /* ‰ΩøËÉΩÁîµÊ∫êÊéßÂà∂Âô® (PWR) APB1 Êé•Âè£Êó∂Èíü */
+    /*  πƒ‹µÁ‘¥øÿ÷∆∆˜ (PWR) APB1 Ω”ø⁄ ±÷” */
     RCC_APB1PeriphClockCmd(RCC_APB1PERIPH_PWR, ENABLE);
-    /* ‰ΩøËÉΩÂØπERTCËÆøÈóÆ */
+    /*  πƒ‹∂‘ERTC∑√Œ  */
     PWR_BackupAccessCtrl(ENABLE);
-    /* ÈáçÁΩÆERTCÂüü */
+    /* ÷ÿ÷√ERTC”Ú */
     RCC_BackupResetCmd(ENABLE);
     RCC_BackupResetCmd(DISABLE);
 
-#if ERTC_CLOCK_SOURCE == 1 /* ‰ΩøÁî®Â§ñÈÉ®32.768KHz */
+#if ERTC_CLOCK_SOURCE == 1 /*  π”√Õ‚≤ø32.768KHz */
 
-    /* ‰ΩøËÉΩÂ§ñÈÉ®32.768KHzÊó∂ÈíüÊ∫ê */
+    /*  πƒ‹Õ‚≤ø32.768KHz ±÷”‘¥ */
     RCC_LSEConfig(RCC_LSE_ENABLE);
-    /* Á≠âÂæÖÊó∂ÈíüÊ∫êÂ∞±Áª™ */
+    /* µ»¥˝ ±÷”‘¥æÕ–˜ */
     while (RCC_GetFlagStatus(RCC_FLAG_LSESTBL) == RESET)
     {
     }
 
-    /* ÈÄâÊã©ERTCÊó∂ÈíüÊ∫ê */
+    /* —°‘ÒERTC ±÷”‘¥ */
     RCC_ERTCCLKConfig(RCC_ERTCCLKSelection_LSE);
     /* ck_spre(1Hz) = ERTCCLK(LSE) /(ucAsynchPrediv + 1)*(usSynchPrediv + 1)*/
     ucAsynchPrediv = 127;
     usSynchPrediv = 255;
-#else /* ÂÜÖÈÉ®40KHzÊó∂Èíü */
+#else /* ƒ⁄≤ø40KHz ±÷” */
 
-    /* ‰ΩøËÉΩÂÜÖÈÉ®40KHzÊó∂ÈíüÊ∫ê */
+    /*  πƒ‹ƒ⁄≤ø40KHz ±÷”‘¥ */
     RCC_LSICmd(ENABLE);
-    /* Á≠âÂæÖÊó∂ÈíüÊ∫êÂ∞±Áª™ */
+    /* µ»¥˝ ±÷”‘¥æÕ–˜ */
     while (RCC_GetFlagStatus(RCC_FLAG_LSISTBL) == RESET)
     {
     }
 
-    /* ÈÄâÊã©ERTCÊó∂ÈíüÊ∫ê */
+    /* —°‘ÒERTC ±÷”‘¥ */
     RCC_ERTCCLKConfig(RCC_ERTCCLKSelection_LSI);
     /* ck_spre(1Hz) = ERTCCLK(LSI) /(ucAsynchPrediv + 1)*(usSynchPrediv + 1)*/
     ucAsynchPrediv = 127;
     usSynchPrediv = 319;
 #endif
 
-    /* ‰ΩøËÉΩERTCÊó∂Èíü */
+    /*  πƒ‹ERTC ±÷” */
     RCC_ERTCCLKCmd(ENABLE);
-    /* Â§ç‰ΩçERTCÂØÑÂ≠òÂô® */
+    /* ∏¥ŒªERTCºƒ¥Ê∆˜ */
     ERTC_Reset();
-    /* Á≠âÂæÖERTC APBÂØÑÂ≠òÂô®ÂêåÊ≠• */
+    /* µ»¥˝ERTC APBºƒ¥Ê∆˜Õ¨≤Ω */
     ERTC_WaitForSynchro();
 
-    /* ÈÖçÁΩÆERTCÊï∞ÊçÆÂØÑÂ≠òÂô®ÂíåERTCÈ¢ÑÂàÜÈ¢ëÂô® */
-    ERTC_InitStructure.ERTC_AsynchPrediv = ucAsynchPrediv;   /* ÂºÇÊ≠•È¢ÑÂàÜÈ¢ë */
-    ERTC_InitStructure.ERTC_SynchPrediv = usSynchPrediv;     /* ÂêåÊ≠•È¢ÑÂàÜÈ¢ë */
-    ERTC_InitStructure.ERTC_HourFormat = ERTC_HourFormat_24; /* Â∞èÊó∂Ê†ºÂºè */
+    /* ≈‰÷√ERTC ˝æ›ºƒ¥Ê∆˜∫ÕERTC‘§∑÷∆µ∆˜ */
+    ERTC_InitStructure.ERTC_AsynchPrediv = ucAsynchPrediv;   /* “Ï≤Ω‘§∑÷∆µ */
+    ERTC_InitStructure.ERTC_SynchPrediv = usSynchPrediv;     /* Õ¨≤Ω‘§∑÷∆µ */
+    ERTC_InitStructure.ERTC_HourFormat = ERTC_HourFormat_24; /* –° ±∏Ò Ω */
     ERTC_Init(&ERTC_InitStructure);
 
     ERTC_ClearFlag(ERTC_FLAG_ALAF);
 
-    /* ËÆæÁΩÆÊó•Êúü: 2021Âπ¥4Êúà9Êó• ÊòüÊúü‰∫î */
+    /* …Ë÷√»’∆⁄: 2021ƒÍ4‘¬9»’ –«∆⁄ŒÂ */
     ERTC_DateStructure.ERTC_Year = 0x21;
     ERTC_DateStructure.ERTC_Month = ERTC_Month_APR;
     ERTC_DateStructure.ERTC_Date = 0x09;
     ERTC_DateStructure.ERTC_WeekDay = ERTC_Week_FRI;
     ERTC_SetDateValue(ERTC_Format_BCD, &ERTC_DateStructure);
 
-    /* ËÆæÁΩÆÊó∂Èó¥: 11Êó∂50ÂàÜ25Áßí */
-    ERTC_TimeStructure.ERTC_AMPM = ERTC_H12_AM; /* ‰∏äÂçà */
+    /* …Ë÷√ ±º‰: 11 ±50∑÷25√Î */
+    ERTC_TimeStructure.ERTC_AMPM = ERTC_H12_AM; /* …œŒÁ */
     ERTC_TimeStructure.ERTC_Hours = 0x11;
     ERTC_TimeStructure.ERTC_Minutes = 0x50;
     ERTC_TimeStructure.ERTC_Seconds = 0x25;
     ERTC_SetTimeValue(ERTC_Format_BCD, &ERTC_TimeStructure);
 
-    /* ÂÜôÊ†áÂøóÂà∞Â§á‰ªΩÂØÑÂ≠òÂô® */
+    /* –¥±Í÷æµΩ±∏∑›ºƒ¥Ê∆˜ */
     ERTC_WriteBackupRegister(ERTC_BKP_DT0, 0x1155);
 }
 
 /*
 *********************************************************************************************************
-*	ÂáΩ Êï∞ Âêç: bsp_InitERTC
-*	ÂäüËÉΩËØ¥Êòé: ÂàùÂßãÂåñERTC
-*	ÂΩ¢    ÂèÇ: Êó†
-*	Ëøî Âõû ÂÄº: Êó†
+*	∫Ø  ˝ √˚: bsp_InitERTC
+*	π¶ƒ‹Àµ√˜: ≥ı ºªØERTC
+*	–Œ    ≤Œ: Œﬁ
+*	∑µ ªÿ ÷µ: Œﬁ
 *********************************************************************************************************
 */
 void bsp_InitERTC(void)
 {
-    /* ËØªÂèñÊ†áÂøó */
+    /* ∂¡»°±Í÷æ */
     if (ERTC_ReadBackupRegister(ERTC_BKP_DT0) != 0x1155)
     {
-        /* ÂàùÂßãÂåñERTCÁ°¨‰ª∂  */
+        /* ≥ı ºªØERTC”≤º˛  */
         bsp_InitHardERTC();
-        /* ÊâìÂç∞Êó∂Èíü */
+        /* ¥Ú”° ±÷” */
         bsp_ERTC_PrintfTime();
     }
-    else /* ÊùøÂ≠êÂ∏¶ÁîµÂ§ç‰Ωç */
+    else /* ∞Â◊”¥¯µÁ∏¥Œª */
     {
-        /* ‰ΩøËÉΩÁîµÊ∫êÊéßÂà∂Âô® (PWR) APB1 Êé•Âè£Êó∂Èíü */
+        /*  πƒ‹µÁ‘¥øÿ÷∆∆˜ (PWR) APB1 Ω”ø⁄ ±÷” */
         RCC_APB1PeriphClockCmd(RCC_APB1PERIPH_PWR, ENABLE);
-        /* ‰ΩøËÉΩÂØπERTCËÆøÈóÆ */
+        /*  πƒ‹∂‘ERTC∑√Œ  */
         PWR_BackupAccessCtrl(ENABLE);
-        /* Á≠âÂæÖERTC APBÂØÑÂ≠òÂô®ÂêåÊ≠• */
+        /* µ»¥˝ERTC APBºƒ¥Ê∆˜Õ¨≤Ω */
         ERTC_WaitForSynchro();
-        /* ÊâìÂç∞Êó∂Èíü */
+        /* ¥Ú”° ±÷” */
         bsp_ERTC_PrintfTime();
     }
 }
 
 /*
 *********************************************************************************************************
-*	ÂáΩ Êï∞ Âêç: bsp_ERTC_PrintfTime
-*	ÂäüËÉΩËØ¥Êòé: ÊâìÂç∞Êó∂Èó¥
-*	ÂΩ¢    ÂèÇ: Êó†
-*	Ëøî Âõû ÂÄº: Êó†
+*	∫Ø  ˝ √˚: bsp_ERTC_PrintfTime
+*	π¶ƒ‹Àµ√˜: ¥Ú”° ±º‰
+*	–Œ    ≤Œ: Œﬁ
+*	∑µ ªÿ ÷µ: Œﬁ
 *********************************************************************************************************
 */
 void bsp_ERTC_PrintfTime(void)
@@ -151,12 +151,12 @@ void bsp_ERTC_PrintfTime(void)
     ERTC_DateType ERTC_DateStructure;
     ERTC_TimeType ERTC_TimeStructure;
 
-    /* ËØªÂèñÊó•Êúü */
+    /* ∂¡»°»’∆⁄ */
     ERTC_GetDateValue(ERTC_Format_BIN, &ERTC_DateStructure);
-    /* ËØªÂèñÊó•Êó∂Èíü */
+    /* ∂¡»°»’ ±÷” */
     ERTC_GetTimeValue(ERTC_Format_BIN, &ERTC_TimeStructure);
-    /* ÊâìÂç∞ */
-    printf("->20%0.2dÂπ¥%0.2dÊúà%0.2dÊó•  %0.2dÊó∂%0.2dÂàÜ%0.2dÁßí\r\n", ERTC_DateStructure.ERTC_Year, ERTC_DateStructure.ERTC_Month, ERTC_DateStructure.ERTC_Date,
+    /* ¥Ú”° */
+    printf("->20%0.2dƒÍ%0.2d‘¬%0.2d»’  %0.2d ±%0.2d∑÷%0.2d√Î\r\n", ERTC_DateStructure.ERTC_Year, ERTC_DateStructure.ERTC_Month, ERTC_DateStructure.ERTC_Date,
            ERTC_TimeStructure.ERTC_Hours, ERTC_TimeStructure.ERTC_Minutes, ERTC_TimeStructure.ERTC_Seconds);
 }
 

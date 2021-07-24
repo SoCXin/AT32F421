@@ -29,7 +29,7 @@
 #include "bsp_pwm.h"
 #include "bsp_exit.h"
 #include "bsp_adc.h"
-#include "bsp_ertc.h"
+//#include "bsp_ertc.h"
 //#include "bsp_i2c_gpio.h"
 //#include "bsp_i2c.h"
 //#include "bsp_spi.h"
