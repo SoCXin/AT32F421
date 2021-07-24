@@ -37,7 +37,7 @@ int main(void)
     while (1)
     {
 		bsp_LED_Toggle();
-		bsp_DelayMs(200);
+		bsp_DelayMs(300);
     }
 }
 

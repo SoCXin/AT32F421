@@ -10,7 +10,7 @@
       <TargetName>Flash</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>AT32F421C8T7,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\User;..\..\User\Bsp;..\..\User\Bsp\inc;..\..\Libraries\CMSIS\CM4\CoreSupport;..\..\Libraries\CMSIS\CM4\DeviceSupport;..\..\Libraries\AT32F4xx_StdPeriph_Driver\inc</IncludePath>
+              <IncludePath>..\User;..\User\Bsp;..\User\Bsp\inc;..\..\Libraries\CMSIS\CM4\CoreSupport;..\..\Libraries\CMSIS\CM4\DeviceSupport;..\..\Libraries\AT32F4xx_StdPeriph_Driver\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -385,12 +385,12 @@
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\main.c</FilePath>
+              <FilePath>..\User\main.c</FilePath>
             </File>
             <File>
               <FileName>at32f4xx_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\at32f4xx_it.c</FilePath>
+              <FilePath>..\User\at32f4xx_it.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -400,22 +400,22 @@
             <File>
               <FileName>bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\Bsp\bsp.c</FilePath>
+              <FilePath>..\User\Bsp\bsp.c</FilePath>
             </File>
             <File>
               <FileName>bsp.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\User\Bsp\bsp.h</FilePath>
+              <FilePath>..\User\Bsp\bsp.h</FilePath>
             </File>
             <File>
               <FileName>bsp_delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\Bsp\src\bsp_delay.c</FilePath>
+              <FilePath>..\User\Bsp\src\bsp_delay.c</FilePath>
             </File>
             <File>
               <FileName>bsp_led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\Bsp\src\bsp_led.c</FilePath>
+              <FilePath>..\User\Bsp\src\bsp_led.c</FilePath>
             </File>
           </Files>
         </Group>
