@@ -1,3 +1,6 @@
 *.pyc
 .pio/
 .vscode/
+Objects
+Listings
+readme.txt
