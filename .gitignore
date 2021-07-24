@@ -8,3 +8,9 @@ readme.txt
 *.hex
 *.bin
 *.scvd
+*.dep
+*.log
+*.ewt
+*.ewd
+settings
+Debug
