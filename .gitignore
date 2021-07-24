@@ -5,3 +5,5 @@ Objects
 Listings
 readme.txt
 *.uvguix*
+*.hex
+*.bin
