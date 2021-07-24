@@ -10,7 +10,7 @@
       <TargetName>QITAS</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -471,6 +471,11 @@
               <FileName>bsp_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Bsp\src\bsp_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Bsp\src\bsp_oled.c</FilePath>
             </File>
           </Files>
         </Group>

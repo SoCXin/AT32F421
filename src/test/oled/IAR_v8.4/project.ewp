@@ -2146,6 +2146,9 @@
             <name>$PROJ_DIR$\..\User\Bsp\src\bsp_led.c</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\User\Bsp\src\bsp_oled.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\User\Bsp\src\bsp_pwm.c</name>
         </file>
         <file>
