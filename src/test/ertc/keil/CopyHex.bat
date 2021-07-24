@@ -1,0 +1,1 @@
+copy Objects\project.hex ..\output(mak5).hex
