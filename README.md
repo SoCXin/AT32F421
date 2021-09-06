@@ -12,10 +12,12 @@
 
 ### 关键特性
 
-* Cortex®-M4主频最高120MHz
-* sLib执行代码安全库区
-* 工业级温度范围-40~105°C
-* STM32F030管脚兼容
+* 15ch ADC (12bit 2MSPS)
+* 2 x USART
+* 2 x I2C + 2 x SPI/I2S
+* ERTC (1ppm的分辨率)
+* COMP (轨到轨比较器,1/4、1/2、3/4 VREF)
+* sLib安全库 (Security Library)
 
 ### [资源收录](https://github.com/SoCXin/AT32F421)
 
@@ -28,18 +30,8 @@
 
 [AT32F421](https://github.com/SoCXin/AT32F421) 系列搭载了雅特力自行开发的sLib安全库 (Security Library) ，可支持密码保护指定范围程序区，方案商烧录核心算法到此区域，提供给下游客户做二次开发，强化了产品本身的安全性、可靠性和二次开发的使用便利度。
 
-该系列定位超值型，主要替代F030 F103 E230 F330等型号，官方提供移植步骤
 
 [![sites](docs/AT32F421.png)](https://www.arterytek.com/cn/product/AT32F421.jsp#Resource)
-
-#### 封装规格
-
-* LQFP48 7 x 7 mm
-* LQFP32 7 x 7 mm
-* QFN32 5 x 5 mm
-* QFN32 4 x 4 mm
-* QFN28 4 x 4 mm
-* TSSOP20 6.5 x 4.4 mm
 
 #### 相关开发板
 
