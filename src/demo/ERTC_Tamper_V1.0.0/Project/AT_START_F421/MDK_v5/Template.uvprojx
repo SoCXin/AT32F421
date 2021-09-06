@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>AT32F421</TargetName>
+      <TargetName>Template</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060960::V5.06 update 7 (build 960)::ARMCC</pCCUsed>
@@ -48,7 +48,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>Template</OutputName>
+          <OutputName>LED</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -137,7 +137,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -336,9 +336,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>AT32F421C8T7,USE_STDPERIPH_DRIVER,USE_FULL_ASSERT,AT_START_F421_V1_0</Define>
+              <Define>AT32F421C8T7,USE_STDPERIPH_DRIVER, AT_START_F421_V1_0</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Libraries\AT32F4xx_StdPeriph_Driver\inc;..\..\..\Libraries\CMSIS\CM4\CoreSupport;..\..\..\Libraries\CMSIS\CM4\DeviceSupport;..\;..\..\AT32_Board</IncludePath>
+              <IncludePath>..\..\..\Libraries\AT32F4xx_StdPeriph_Driver\inc;..\..\..\Libraries\CMSIS\CM4\CoreSupport;..\..\..\Libraries\CMSIS\CM4\DeviceSupport;..\..\LED_Toggle;..\..\AT32_Board</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -395,16 +395,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>at32_board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\AT32_Board\at32_board.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>CMSIS</GroupName>
           <Files>
             <File>
@@ -438,9 +428,34 @@
               <FilePath>..\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_usart.c</FilePath>
             </File>
             <File>
+              <FileName>at32f4xx_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f4xx_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f4xx_ertc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\at32f4xx_ertc.c</FilePath>
+            </File>
+            <File>
               <FileName>misc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\Libraries\AT32F4xx_StdPeriph_Driver\src\misc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>at32_board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\AT32_Board\at32_board.c</FilePath>
             </File>
           </Files>
         </Group>
