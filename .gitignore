@@ -1,4 +1,6 @@
 *.pyc
+*.hex
+*.log
 .pio/
 .vscode/
 Objects
@@ -15,3 +17,4 @@ readme.txt
 settings
 Debug
 说明.txt
+
