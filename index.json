@@ -19,16 +19,19 @@
         "type": "git",
         "url": "https://github.com/SoCXin/AT32F421.git"
     },
+    "version":"1.0.0",
     "series":["AT32F421"],
-    "package":["LQFP64M","QFN68","QFN48","QFN28"],
-    "peripheral": ["TIM","ADC","USB","UART","SPI","LDO","PWM"],
-    "price":[4,16],
+    "package":["LQFP48","LQFP32","TSSOP20","QFN32","QFN28"],
+    "peripheral": ["ADC","CMP","UART","I2C","SPI","I2S","RTC","TIM","PWM"],
+    "temp": [-40,85],
+    "volt": [1.7,5.5],
+    "ESD": {
+        "HBM": 4000,
+        "CDM": 500
+    },
     "keywords": [
-        "dev-platform",
-        "ARM",
-        "Cortex-M",
+        "Cortex-M4",
         "arterytek",
-        "DAC","SDIO","CAN","I2C","RTC","SPI",
-        "3.6V","1.8V"
+        "ADC","CMP","UART","I2C","SPI","I2S","RTC","TIM","PWM"
     ]
 }
