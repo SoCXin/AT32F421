@@ -20,7 +20,7 @@ FLASH_PROGRM	?= pyocd
 
 #ARM_TOOCHAIN	?= /opt/gcc-arm/gcc-arm-11.2-2022.02-x86_64-arm-none-eabi/bin
 #ARM_TOOCHAIN	?= /opt/gcc-arm/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin
-ARM_TOOCHAIN	?= /opt/gcc-arm/arm-gnu-toolchain-12.2.mpacbti-bet1-x86_64-arm-none-eabi/bin
+ARM_TOOCHAIN	?= /opt/gcc-arm/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin
 
 # path to JLinkExe
 JLINKEXE		?= /opt/SEGGER/JLink/JLinkExe
@@ -44,7 +44,7 @@ CDIRS	:= User \
 		Libraries/bsp/src
 
 # C source files (if there are any single ones)
-CFILES := 
+CFILES :=
 
 # ASM source folders
 ADIRS	:= User
