@@ -3,7 +3,7 @@ name: templates
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'templates/**'
       - '**/templates.yml'
